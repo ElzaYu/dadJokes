@@ -1,4 +1,8 @@
 @use "./partials/animations" as *;
+@use "./partials/global" as *;
+@use "./partials/mixin" as *;
+@use "./partials/resets" as *;
+@use "./partials/variables" as *;
 
 .poster {
   display: flex;
@@ -39,7 +43,7 @@
 
     &__bubble {
       background-color: lightslategrey;
-      padding: 1.5rem;
+      padding: 01rem;
       position: relative;
       border-radius: 0 0.25rem 0.25rem 0.25rem;
       box-shadow: 7px 30px 40px #555554;
@@ -60,8 +64,9 @@
 
       & .joke {
         width: 15rem;
-        height: 3rem;
+        height: 5rem;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
+        resize: none;
       }
     }
   }
@@ -69,6 +74,4 @@
 
 .animated {
   @extend .poster__speech__bubble;
-  transition: 1s;
-  animation: speech 0.7s linear 1;
 }

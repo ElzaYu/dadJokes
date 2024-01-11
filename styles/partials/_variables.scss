@@ -1,24 +1,6 @@
 $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1280px;
 
-// PRIMARY COLORS
+$wrapper-max-width: 1140px;
 
-$BandSite-Black: #323232;
-// Primary text color for dark on light background. Dark background color
-
-$Silver: #afafaf;
-// Seconday text color. Inactive CTA text color.
-
-$White: #ffffff;
-// Primary text color for light on dark background. Light background color. Active CTA text color.
-
-// SECONDARY COLORS
-
-$BandSite-DarkBlack: #000000;
-// CTA hover state.
-
-$Mercury: #e1e1e1;
-// Divider line. Form field outline.
-
-$Alabaster: #fafafa;
-// Alternative light background color
+$brand-primary: yellow;

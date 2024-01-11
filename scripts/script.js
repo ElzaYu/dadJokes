@@ -1,38 +1,31 @@
-
 const fetchJokes = async () => {
   try {
-    const url = "https://icanhazdadjoke.com/"
-    const { data } = await axios.get(url, { headers: { "Accept": "application/json" } });
-    const { joke } = data
+    const url = "https://icanhazdadjoke.com/";
+    const { data } = await axios.get(url, {
+      headers: { Accept: "application/json" },
+    });
+    const { joke } = data;
 
-    const jokeContainer = document.querySelector('.joke-wrapper')
-    const p = document.createElement('p')
-    p.textContent = joke
+    const jokeContainer = document.querySelector(".joke");
+    jokeContainer.textContent = joke;
 
     // Append it to section
-    jokeContainer.appendChild(p)
-
-  
-    
+    jokeContainer.appendChild(p);
   } catch (error) {
-    console.log(error)
-    
+    console.log(error);
   }
-  
-}
+};
 
-fetchJokes()
+fetchJokes();
 
+//
 
-// 
-
-const jokeBtn = document.querySelector('.navbar__btn');
-jokeBtn.addEventListener('click', () => {
-  const jokeContainer = document.querySelector('.joke-wrapper')
-  jokeContainer.innerHTML = ""
-  fetchJokes()
-})
-
+const jokeBtn = document.querySelector(".poster__button");
+jokeBtn.addEventListener("click", () => {
+  const jokeContainer = document.querySelector(".joke");
+  jokeContainer.innerHTML = "";
+  fetchJokes();
+});
 
 // Search for Jokes
 
@@ -45,12 +38,12 @@ jokeBtn.addEventListener('click', () => {
 //   targetElement.className = "animated";
 // }
 
-const btn = document.getElementById("target");
+const btn = document.getElementById(".poster__button");
 
-function doAnimation() {
-  btn.innerHTML = "Clicked ME";
-  // btn.style = "animated";
-}
+btn.addEventListener("click", () => {
+  const bubble = document.querySelector(".poster__speech");
+  bubble.classList.add("animated");
+});
 
 // console.log(doAnimation());
 // // Add a click event handler (via an anonymous inline arrow function)

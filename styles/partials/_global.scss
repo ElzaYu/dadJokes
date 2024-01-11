@@ -1,0 +1,104 @@
+@use "./mixin" as *;
+@use "./resets" as *;
+@use "./variables" as *;
+
+.header {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(255, 200, 124) 0%,
+    rgb(252, 251, 121) 90%
+  );
+
+  &__branding {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__img {
+      width: 10px;
+      height: 10px;
+    }
+
+    &__wrapper {
+      max-width: $wrapper-max-width;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1rem 0;
+
+      @include tablet-and-desktop {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 1rem;
+      }
+
+      @include desktop {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    column-gap: 1rem;
+  }
+
+  &__item {
+    margin: 2rem 0;
+  }
+
+  &__link {
+    padding: 1rem;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+  }
+}
+
+.footer {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(255, 200, 124) 0%,
+    rgb(252, 251, 121) 90%
+  );
+  padding: 1rem;
+
+  &__wrapper {
+    max-width: $wrapper-max-width;
+    margin: auto;
+  }
+
+  &__img {
+    width: 5rem;
+  }
+
+  &__copyright {
+    display: flex;
+    align-items: center;
+    text-align: right;
+
+    // Hide the desktop copyright on mobile
+    &--desktop {
+      display: none;
+
+      // Show it on tablet & above
+      @include tablet-and-desktop {
+        display: block;
+      }
+    }
+
+    &--mobile {
+      // Hide the mobile copyright on tablet & above
+      @include tablet-and-desktop {
+        display: none;
+      }
+    }
+  }
+}

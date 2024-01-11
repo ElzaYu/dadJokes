@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/search.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
@@ -12,17 +13,32 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="./styles/landing.css" />
-    <link rel="stylesheet" href="./styles/search.css">
+    <link rel="stylesheet" href="./styles/search.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./scripts/search.js" defer></script>
     <title>Document</title>
   </head>
   <body>
-    <header>
-      <h1>Joke</h1>
-      <nav class="navbar">
-        <a href="./index.html">Home</a>
-      </nav>
+    <header class="header">
+      <div class="header__wrapper">
+        <div class="header__branding">
+          <!-- <img class= "header__img" src="#" alt="Dad Jokes logo" class="header__logo" /> -->
+          <h1 class="header__title">Dad Jokes Generator</h1>
+        </div>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link" href="./index.html">Home</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="./search.html">Search</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="./imgJoke.html">Joke of the Day</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <main>
       <section>
@@ -39,5 +55,37 @@
       </section>
       <section class="btn-wrapper"></section>
     </main>
+
+    <footer class="footer">
+      <div class="footer__wrapper">
+        <div class="footer__brand">
+          <div class="footer__brand-wrapper">
+            <img
+              class="footer__img"
+              src="https://cdn.dribbble.com/users/116728/screenshots/3424993/emoji_laugh.gif"
+              alt="Dad Jokes Logo"
+            />
+            <p class="footer__title">Dad Jokes Generator</p>
+          </div>
+          <div class="footer__social__img">
+            <img
+              src="./assets/SVG copy/Icon-instagram.svg"
+              alt="Instagram icon"
+            />
+            <img
+              src="./assets/SVG copy/Icon-facebook.svg"
+              alt="Facebook icon"
+            />
+            <img src="./assets/SVG copy/Icon-twitter.svg" alt="Twitter icon" />
+          </div>
+          <p class="footer__copyright footer__copyright--desktop">
+            Copyright &#169; Elza, Charu & Maria
+          </p>
+          <p class="footer__copyright footer__copyright--mobile">
+            Copyright &#169; Elza, Charu & Maria
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
