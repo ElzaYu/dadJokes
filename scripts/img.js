@@ -3,8 +3,8 @@ console.log("hiaaa")
 const fetchImgJokes = async (id) => {
   try {
     const url = `https://icanhazdadjoke.com/j/${id}.png`
-   const response = await axios.get(url, { responseType: 'arraybuffer' });
-
+    const response = await axios.get(url, { responseType: 'arraybuffer' });
+    
     const uint8Array = new Uint8Array(response.data);
     const binaryString = String.fromCharCode.apply(null, uint8Array);
     const base64Image = btoa(binaryString);

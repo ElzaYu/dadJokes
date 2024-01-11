@@ -102,7 +102,11 @@ const serachJokesByTerm = async(searchTerm) => {
     jokeListUL.innerHTML = ""
     btnWrapper.innerHTML =""
     displaySearchedJokes(searchedJokeList, searchTerm) 
-    createPageNumbers(searchedJokeList)
+// Display buttons only if there are more than 5 jokes
+    if (searchedJokeList.length > 5) {
+       createPageNumbers(searchedJokeList)
+    }
+   
   } catch (error) {
     console.log(error)
     
