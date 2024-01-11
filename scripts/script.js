@@ -39,10 +39,14 @@ jokeBtn.addEventListener("click", () => {
 // }
 
 const btn = document.getElementById(".poster__button");
+const cont = document.querySelector("poster");
 
 btn.addEventListener("click", () => {
-  const bubble = document.querySelector(".poster__speech");
-  bubble.classList.add("animated");
+  const bubble = dsocument.createElement("div");
+  bubble.classList.add("poster__speech__bubble");
+  cont.appendChild(bubble);
+
+  const bubbleText = document.querySelector("textarea");
 });
 
 // console.log(doAnimation());
