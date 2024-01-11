@@ -1,4 +1,3 @@
-console.log("hi")
 
 const fetchJokes = async () => {
   try {
