@@ -35,3 +35,9 @@ jokeBtn.addEventListener('click', () => {
 })
 
 
+// Search for Jokes
+
+// form.addEventListener('submit', (event) => {
+//   event.preventDefault()
+//   console.log(event.target.joke)
+// })
