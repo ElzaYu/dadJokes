@@ -1,22 +1,17 @@
 
 const form = document.querySelector('form')
+  const jokesPerPage = 5;
+  let currentPage = 1;
+  let totalPages = 0;
 
-const displaySearchedJokes = (searchedJokeList , searchTerm) => {
-  // console.log(searchedJokeList)
+const displaySearchedJokes = (searchedJokeList, searchTerm) => {
   const jokeListWrapper = document.querySelector('.joke-list-wrapper')
-  // console.log(jokeListWrapper)
+  const jokeListUL = document.querySelector('.joke-list')
   const totalJokes = searchedJokeList.length || "No"
   
   const h2 = document.createElement('h2')
   h2.textContent = `${totalJokes} jokes found with term ${searchTerm}`
-  jokeListWrapper.appendChild(h2)
-
-  // if jokes are found , length is greater than 0 , display jokes
-
-  // Implement Pagination (display 5 per page)
-  // const jokesPerPage = 5;
-  // let currentPage = 1;
-  // let totalPages = 0;
+  jokeListWrapper.insertBefore(h2, jokeListWrapper.firstChild);
 
   // extract 5 jokesp per page
   console.log(searchedJokeList)
@@ -30,42 +25,78 @@ const displaySearchedJokes = (searchedJokeList , searchTerm) => {
 // Function to display 5 jokes per page
 
 function displayJokes(jokesList, page) {
-  console.log(jokesList)
-  const section = document.querySelector('.joke-list-wrapper')
-  const ul = document.createElement('ul')
-  section.appendChild(ul)
+  const jokeListUL = document.querySelector('.joke-list')
+  jokeListUL.innerHTML=""
   
-   const jokesPerPage = 5;
-  let currentPage = 1;
-  let totalPages = 0;
   const start = (page - 1) * jokesPerPage
   const end = start + jokesPerPage
-  console.log(start , end)
 
   const jokesToDisplay = jokesList.slice(start, end)
   jokesToDisplay.forEach(jokeItem => {
     const li = document.createElement('li')
     li.textContent = jokeItem.joke
-    console.log(li)
-    ul.appendChild(li)
-    console.log("====")
-    console.log(ul)
+    jokeListUL.appendChild(li)
   
   });
-
+ currentPage = page;
 }
 
+function createPageNumbers(jokesList) {
+    const paginationSection = document.querySelector('.btn-wrapper')
+  const pageNumDiv = document.createElement('div')
+  paginationSection.appendChild(pageNumDiv)
+
+  totalPages = Math.ceil(jokesList.length / jokesPerPage);
+  if (totalPages > 0) {
+    const nextButton = document.createElement('button');
+    const prevButton = document.createElement('button');
+    nextButton.textContent = 'Next';
+    prevButton.textContent = 'Prev';
+
+    nextButton.addEventListener('click', () => {
+      // nextButton.style.backgroundColor = "red"
+      if (totalPages >= currentPage + 1) {
+
+        displayJokes(jokesList, currentPage + 1)
+      }
+    })
+
+    prevButton.addEventListener('click', () => {
+      if (currentPage - 1 > 0) {
+         displayJokes(jokesList, currentPage - 1);
+      }
+    })
+
+    pageNumDiv.insertAdjacentElement('beforebegin', prevButton)
+    pageNumDiv.insertAdjacentElement('afterend', nextButton)
+  }
+
+
+ for (let i = 1; i <= totalPages; i++) {
+                    const button = document.createElement('button');
+                    button.textContent = i;
+   button.addEventListener('click', () => {
+    //  button.style.backgroundColor = "red"
+     displayJokes(jokesList, i)
+   }
+                    );
+                    pageNumDiv.appendChild(button);
+                }
+
+  
+
+}
 const serachJokesByTerm = async(searchTerm) => {
   try {
     const url = `https://icanhazdadjoke.com/search?term=${searchTerm}`
     const response = await axios.get(url, { headers: { "Accept": "application/json" } })
     const searchedJokeList = response.data.results
-    console.log(searchedJokeList)
-
-    const jokesListWrapper = document.querySelector('.joke-list-wrapper')
-    console.log(jokesListWrapper)
-    jokesListWrapper.innerHTML =""
-    displaySearchedJokes(searchedJokeList , searchTerm)  
+    const jokeListUL = document.querySelector('.joke-list')
+    const btnWrapper = document.querySelector('.btn-wrapper')
+    jokeListUL.innerHTML = ""
+    btnWrapper.innerHTML =""
+    displaySearchedJokes(searchedJokeList, searchTerm) 
+    createPageNumbers(searchedJokeList)
   } catch (error) {
     console.log(error)
     
@@ -77,11 +108,5 @@ form.addEventListener('submit', (event) => {
   event.preventDefault()
   const searchTerm = event.target.joke.value;
   console.log(searchTerm)
-
-  // Call the function which make api call
   serachJokesByTerm(searchTerm)
-
-
-
-
 })
