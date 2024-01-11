@@ -1,27 +1,22 @@
 .poster {
   display: flex;
   justify-content: space-around;
-
-  &__image {
-  }
-
-  &__speech {
-    background-color: rgb(14, 8, 1);
-    height: 10rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &__bubble {
-      background-color: beige;
-      padding: 1.5rem;
-      position: relative;
-      border-radius: 0 0.25rem 0.25rem 0.25rem;
-      box-shadow: 7px 30px 40px #664400;
-      transition: 0.5s;
-      animation: speech 0.7s linear 1;
-    }
-  }
+}
+.poster__speech {
+  background-color: rgb(14, 8, 1);
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.poster__speech__bubble {
+  background-color: beige;
+  padding: 1.5rem;
+  position: relative;
+  border-radius: 0 0.25rem 0.25rem 0.25rem;
+  box-shadow: 7px 30px 40px #664400;
+  transition: 0.5s;
+  animation: speech 0.7s linear 1;
 }
 
 @keyframes speech {
@@ -39,12 +34,10 @@
     top: -20px;
     box-shadow: 7px -10px 50px #664400;
   }
-
   100% {
     top: 0;
   }
 }
-
 .poster__speech__bubble::after {
   content: "";
   position: absolute;
@@ -55,4 +48,4 @@
   top: 0%;
   transform: skewY(20deg);
   transform-origin: 100% 100%;
-}
+}/*# sourceMappingURL=landing.css.map */
