@@ -1,0 +1,27 @@
+@keyframes speech {
+  0% {
+    top: -20px;
+  }
+  25% {
+    top: 5px;
+    box-shadow: 7px 40px 40px #555554;
+  }
+  50% {
+    top: 20px;
+  }
+  75% {
+    top: -20px;
+    box-shadow: 7px -10px 50px #555554;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+// @keyframes skewed {
+//   skew(10deg);
+//   skew(0);
+//   skew(-10ged);
+//   skew(0);
+// }

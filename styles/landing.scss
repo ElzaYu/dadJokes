@@ -1,58 +1,74 @@
+@use "./partials/animations" as *;
+
 .poster {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 
   &__image {
   }
 
+  &__button {
+    background-image: url("../assets/Peter_Griffin.png");
+    background-size: cover;
+    height: 22rem;
+    width: 15rem;
+    background-color: white;
+    border: none;
+
+    // &:hover {
+    //   transform: skew(30deg);
+    // }
+    // transform: skew(0);
+    // transform: skew(-10deg);
+    // transform: skew(0);
+    // }
+
+    &:active {
+      transform: scale(0.95, 0.95);
+      //transition: 1s;
+    }
+  }
+
   &__speech {
-    background-color: rgb(14, 8, 1);
-    height: 10rem;
+    // background-color: rgb(14, 8, 1);
+    height: 15rem;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
     &__bubble {
-      background-color: beige;
+      background-color: lightslategrey;
       padding: 1.5rem;
       position: relative;
       border-radius: 0 0.25rem 0.25rem 0.25rem;
-      box-shadow: 7px 30px 40px #664400;
-      transition: 0.5s;
+      box-shadow: 7px 30px 40px #555554;
+      transition: 1s;
       animation: speech 0.7s linear 1;
+
+      &::after {
+        content: "";
+        position: absolute;
+        border: 1rem solid transparent;
+        border-top-color: lightslategrey;
+        border-right-color: lightslategrey;
+        right: 100%;
+        top: 0%;
+        transform: skewY(20deg);
+        transform-origin: 100% 100%;
+      }
+
+      & .joke {
+        width: 15rem;
+        height: 3rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
     }
   }
 }
 
-@keyframes speech {
-  0% {
-    top: -20px;
-  }
-  25% {
-    top: 5px;
-    box-shadow: 7px 40px 40px #664400;
-  }
-  50% {
-    top: 20px;
-  }
-  75% {
-    top: -20px;
-    box-shadow: 7px -10px 50px #664400;
-  }
-
-  100% {
-    top: 0;
-  }
-}
-
-.poster__speech__bubble::after {
-  content: "";
-  position: absolute;
-  border: 0.5rem solid transparent;
-  border-top-color: beige;
-  border-right-color: beige;
-  right: 100%;
-  top: 0%;
-  transform: skewY(20deg);
-  transform-origin: 100% 100%;
+.animated {
+  @extend .poster__speech__bubble;
+  transition: 1s;
+  animation: speech 0.7s linear 1;
 }
