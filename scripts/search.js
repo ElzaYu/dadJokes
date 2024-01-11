@@ -6,6 +6,12 @@ const form = document.querySelector('form')
 
 const displaySearchedJokes = (searchedJokeList, searchTerm) => {
   const jokeListWrapper = document.querySelector('.joke-list-wrapper')
+  let h2Elm = jokeListWrapper.firstChild;
+  
+  if (h2Elm) {
+  jokeListWrapper.removeChild(h2Elm);
+}
+
   const jokeListUL = document.querySelector('.joke-list')
   const totalJokes = searchedJokeList.length || "No"
   
