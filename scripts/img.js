@@ -4,14 +4,17 @@ const fetchImgJokes = async (id) => {
   try {
     const url = `https://icanhazdadjoke.com/j/${id}.png`
     const response = await axios.get(url, { responseType: 'arraybuffer' });
+
     
     const uint8Array = new Uint8Array(response.data);
     const binaryString = String.fromCharCode.apply(null, uint8Array);
     const base64Image = btoa(binaryString);
+    console.log(base64Image)
 
 const imgContainer = document.querySelector('.img-container');
 const img = document.createElement('img');
-img.src = 'data:image/png;base64,' + base64Image;
+    img.src = 'data:image/png;base64,' + base64Image;
+    console.log(img.src)
 imgContainer.appendChild(img);
 
     

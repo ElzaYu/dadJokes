@@ -12,7 +12,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="./styles/landing.css" />
-    <link rel="stylesheet" href="./styles/search.css">
+    <link rel="stylesheet" href="./styles/search.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./scripts/search.js" defer></script>
     <title>Document</title>
@@ -25,12 +25,19 @@
       </nav>
     </header>
     <main>
-      <section>
-        <h1>Search for a joke</h1>
+      <section class="search">
+        <h1 class="search__title">Search for a dad joke</h1>
         <form class="form">
-          <label for="joke">Search for a joke:</label>
-          <input type="search" id="joke" name="joke" />
-          <button>Search</button>
+          <div>
+            <!-- <label for="joke">Search for a joke:</label> -->
+            <input
+              type="search"
+              id="joke"
+              name="joke"
+              placeholder="Search Term"
+            />
+          </div>
+          <button class="search__btn">Search</button>
         </form>
       </section>
       <!-- Section to display Joke -->

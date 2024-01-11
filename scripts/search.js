@@ -16,7 +16,9 @@ const displaySearchedJokes = (searchedJokeList, searchTerm) => {
   const totalJokes = searchedJokeList.length || "No"
   
   const h2 = document.createElement('h2')
-  h2.textContent = `${totalJokes} jokes found with term ${searchTerm}`
+  h2.classList.add('joke-num')
+h2.textContent = `${totalJokes} jokes found with term ${searchTerm.toUpperCase()}`;
+
   jokeListWrapper.insertBefore(h2, jokeListWrapper.firstChild);
 
   // extract 5 jokesp per page
@@ -41,6 +43,7 @@ function displayJokes(jokesList, page) {
   jokesToDisplay.forEach(jokeItem => {
     const li = document.createElement('li')
     li.textContent = jokeItem.joke
+    // li.className.add('joke-list__item')
     jokeListUL.appendChild(li)
   
   });
@@ -56,6 +59,8 @@ function createPageNumbers(jokesList) {
   if (totalPages > 0) {
     const nextButton = document.createElement('button');
     const prevButton = document.createElement('button');
+    nextButton.classList.add("btn-wrapper__next")
+     prevButton.classList.add("btn-wrapper__next")
     nextButton.textContent = 'Next';
     prevButton.textContent = 'Prev';
 
@@ -72,6 +77,7 @@ function createPageNumbers(jokesList) {
          displayJokes(jokesList, currentPage - 1);
       }
     })
+   pageNumDiv.classList.add('btn-wrapper__num')
 
     pageNumDiv.insertAdjacentElement('beforebegin', prevButton)
     pageNumDiv.insertAdjacentElement('afterend', nextButton)
@@ -79,7 +85,8 @@ function createPageNumbers(jokesList) {
 
 
  for (let i = 1; i <= totalPages; i++) {
-                    const button = document.createElement('button');
+   const button = document.createElement('button');
+  //  button.classList.add('btn-wrapper__num')
                     button.textContent = i;
    button.addEventListener('click', () => {
     //  button.style.backgroundColor = "red"

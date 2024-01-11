@@ -1,6 +1,130 @@
-/*# sourceMappingURL=search.css.map */
-
-
-* button{
-  display : block
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+* {
+  margin: 0;
+  font-family: "Avenir";
+}
+
+li {
+  list-style: none;
+}
+
+button, img, ul, li {
+  display: block;
+}
+
+.btn-wrapper {
+  display: flex;
+  max-width: 1180px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+.btn-wrapper__next {
+  margin-left: 0.5rem;
+  height: 2.5rem;
+  min-width: 2rem;
+  background-color: grey;
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+.btn-wrapper__next:hover {
+  background-color: black;
+  color: white;
+}
+.btn-wrapper__num {
+  display: flex;
+}
+.btn-wrapper__num button {
+  height: 2.5rem;
+  min-width: 3rem;
+  color: black;
+  background-color: grey;
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+.btn-wrapper__num button:hover {
+  background-color: black;
+  color: white;
+}
+
+.search {
+  max-width: 1180px;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.search__title {
+  text-align: center;
+  font-family: "Avenir";
+  padding: 1rem;
+  text-transform: capitalize;
+}
+.search__btn {
+  align-self: center;
+  height: 2.5rem;
+  min-width: 3rem;
+  color: black;
+  background-color: grey;
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  margin-top: 2.5rem;
+}
+.search__btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.joke-list > li {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  margin-right: 1rem;
+  background-color: gray;
+}
+.joke-list > li:hover {
+  background-color: black;
+  color: white;
+}
+
+.joke-list-wrapper {
+  max-width: 1180px;
+  margin: auto;
+  padding: 1rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.form {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.joke-num {
+  text-align: center;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+}/*# sourceMappingURL=search.css.map */

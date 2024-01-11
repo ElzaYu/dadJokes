@@ -4,21 +4,14 @@ const fetchJokes = async () => {
     const url = "https://icanhazdadjoke.com/"
     const { data } = await axios.get(url, { headers: { "Accept": "application/json" } });
     const { joke } = data
-
     const jokeContainer = document.querySelector('.joke-wrapper')
     const p = document.createElement('p')
     p.textContent = joke
-
     // Append it to section
     jokeContainer.appendChild(p)
-
-  
-    
   } catch (error) {
     console.log(error)
-    
   }
-  
 }
 
 fetchJokes()

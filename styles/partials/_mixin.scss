@@ -1,0 +1,13 @@
+@mixin btn() {
+  height: 2.5rem;
+  min-width: 9.375rem;
+  color: black;
+  background-color: grey;
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0 $padding;
+  text-align: center;
+  cursor: pointer;
+}
